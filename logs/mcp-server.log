@@ -1,0 +1,196 @@
+2026-06-15 12:38:02 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-06-15 12:38:02 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-06-15 12:38:02 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-06-15 12:38:02 [INFO] mcp.server.lowlevel.server: Processing request of type ListToolsRequest
+2026-06-15 12:38:02 [INFO] mcp.server.lowlevel.server: Processing request of type ListPromptsRequest
+2026-06-15 12:38:02 [INFO] mcp.server.lowlevel.server: Processing request of type ListResourcesRequest
+2026-06-15 12:40:17 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 12:40:17 [INFO] mcp-server: Tool called: list_tables
+2026-06-15 12:40:18 [INFO] mcp-server: Tool finished: list_tables
+2026-06-15 12:54:03 [INFO] mcp-server: MCP server stopped
+2026-06-15 12:54:21 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-06-15 12:54:21 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-06-15 12:54:22 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-06-15 12:54:22 [INFO] mcp.server.lowlevel.server: Processing request of type ListToolsRequest
+2026-06-15 12:54:22 [INFO] mcp.server.lowlevel.server: Processing request of type ListPromptsRequest
+2026-06-15 12:54:22 [INFO] mcp.server.lowlevel.server: Processing request of type ListResourcesRequest
+2026-06-15 12:55:13 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 12:55:13 [INFO] mcp-server: Tool called: get_floor_count
+2026-06-15 12:55:13 [ERROR] mcp-server: Tool failed: get_floor_count
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\server.py", line 41, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\server.py", line 196, in get_floor_count
+    return await buildings.floor_count(building_id, jc, jp, state, city)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\building_service.py", line 183, in floor_count
+    column_map = self._require_map()
+  File "c:\Vidushi\mcp-server\building_service.py", line 47, in _require_map
+    raise ValueError(
+        "Building service not initialized. Call setup_buildings first."
+    )
+ValueError: Building service not initialized. Call setup_buildings first.
+2026-06-15 12:55:22 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 12:55:22 [INFO] mcp-server: Tool called: setup_buildings
+2026-06-15 12:55:24 [ERROR] mcp-server: Tool failed: setup_buildings
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\server.py", line 41, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\server.py", line 116, in setup_buildings
+    result = await buildings.setup(table_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\building_service.py", line 33, in setup
+    procedures = await deploy_building_procedures(self.db, self.column_map)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\building_procedures.py", line 324, in deploy_building_procedures
+    await conn.execute(sql)
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 354, in execute
+    result = await self._protocol.query(query, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 369, in query
+asyncpg.exceptions.DatatypeMismatchError: COALESCE types character varying and integer cannot be matched
+2026-06-15 12:55:27 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 12:55:27 [INFO] mcp-server: Tool called: setup_buildings
+2026-06-15 12:55:27 [ERROR] mcp-server: Tool failed: setup_buildings
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\server.py", line 41, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\server.py", line 116, in setup_buildings
+    result = await buildings.setup(table_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\building_service.py", line 33, in setup
+    procedures = await deploy_building_procedures(self.db, self.column_map)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\building_procedures.py", line 324, in deploy_building_procedures
+    await conn.execute(sql)
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 354, in execute
+    result = await self._protocol.query(query, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 369, in query
+asyncpg.exceptions.DatatypeMismatchError: COALESCE types character varying and integer cannot be matched
+2026-06-15 12:55:32 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 12:55:32 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 12:55:32 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 12:55:36 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 12:55:36 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 12:55:39 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 12:55:42 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 12:55:42 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 12:55:44 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 12:55:46 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 12:55:46 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 12:55:46 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 13:08:01 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-06-15 13:08:01 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-06-15 13:08:02 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-06-15 13:08:02 [INFO] mcp.server.lowlevel.server: Processing request of type ListToolsRequest
+2026-06-15 13:08:02 [INFO] mcp.server.lowlevel.server: Processing request of type ListPromptsRequest
+2026-06-15 13:08:02 [INFO] mcp.server.lowlevel.server: Processing request of type ListResourcesRequest
+2026-06-15 13:09:30 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-06-15 13:09:30 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-06-15 13:09:31 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-06-15 13:09:31 [INFO] mcp-server: AUTO_SETUP_ALL_TABLES enabled — registering all tables
+2026-06-15 13:09:43 [INFO] mcp-server: Setup complete: 8 succeeded, 19 failed
+2026-06-15 13:09:43 [INFO] mcp.server.lowlevel.server: Processing request of type ListToolsRequest
+2026-06-15 13:09:43 [INFO] mcp.server.lowlevel.server: Processing request of type ListPromptsRequest
+2026-06-15 13:09:43 [INFO] mcp.server.lowlevel.server: Processing request of type ListResourcesRequest
+2026-06-15 13:10:43 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-06-15 13:10:43 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-06-15 13:10:44 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-06-15 13:10:44 [INFO] mcp-server: AUTO_SETUP_ALL_TABLES enabled — registering all tables
+2026-06-15 13:10:55 [INFO] mcp-server: Setup complete: 8 succeeded, 19 failed
+2026-06-15 13:22:17 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-06-15 13:22:17 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-06-15 13:22:18 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-06-15 13:22:18 [INFO] mcp-server: AUTO_SETUP_ALL_TABLES enabled — registering all tables
+2026-06-15 13:22:30 [INFO] mcp-server: Setup complete: 8 succeeded, 19 failed
+2026-06-15 13:22:30 [INFO] mcp.server.lowlevel.server: Processing request of type ListToolsRequest
+2026-06-15 13:22:30 [INFO] mcp.server.lowlevel.server: Processing request of type ListPromptsRequest
+2026-06-15 13:22:30 [INFO] mcp.server.lowlevel.server: Processing request of type ListResourcesRequest
+2026-06-15 13:22:41 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 13:22:41 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 13:22:41 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 13:22:44 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 13:22:44 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 13:22:44 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 13:22:46 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 13:22:46 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 13:22:47 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 13:32:44 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 13:32:44 [INFO] mcp-server: Tool called: list_tables
+2026-06-15 13:32:45 [INFO] mcp-server: Tool finished: list_tables
+2026-06-15 13:43:02 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 13:43:02 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 13:43:04 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 14:35:54 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 14:35:54 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 14:35:55 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 14:35:57 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 14:35:57 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 14:35:57 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 14:36:00 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 14:36:00 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 14:36:00 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 14:36:02 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 14:36:02 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 14:36:03 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 14:37:15 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 14:37:15 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 14:37:15 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 14:37:17 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 14:37:17 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 14:37:17 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 14:37:19 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 14:37:19 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 14:37:19 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 14:37:21 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 14:37:21 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 14:37:21 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 14:37:24 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 14:37:24 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 14:37:28 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 14:56:47 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-06-15 14:56:47 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-06-15 14:56:47 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-06-15 14:56:47 [INFO] mcp-server: AUTO_SETUP_ALL_TABLES enabled — registering all tables
+2026-06-15 14:56:58 [INFO] mcp-server: Setup complete: 8 succeeded, 19 failed
+2026-06-15 14:56:58 [INFO] mcp-server: AUTO_SETUP_NE_TABLES enabled — registering NE tables
+2026-06-15 14:56:59 [INFO] mcp-server: NE setup: 0 succeeded, 1 failed
+2026-06-15 14:56:59 [INFO] mcp.server.lowlevel.server: Processing request of type ListToolsRequest
+2026-06-15 14:56:59 [INFO] mcp.server.lowlevel.server: Processing request of type ListPromptsRequest
+2026-06-15 14:56:59 [INFO] mcp.server.lowlevel.server: Processing request of type ListResourcesRequest
+2026-06-15 14:57:18 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 14:57:18 [INFO] mcp-server: Tool called: setup_ne_tables
+2026-06-15 14:57:19 [INFO] mcp-server: NE setup: 0 succeeded, 1 failed
+2026-06-15 14:57:19 [INFO] mcp-server: Tool finished: setup_ne_tables
+2026-06-15 14:57:24 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 14:57:24 [INFO] mcp-server: Tool called: ne_data_summary
+2026-06-15 14:57:24 [ERROR] mcp-server: Tool failed: ne_data_summary
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\server.py", line 44, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\server.py", line 281, in ne_data_summary
+    return await ne.ne_data_summary()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\ne_service.py", line 164, in ne_data_summary
+    raise ValueError("No NE tables registered. Call setup_ne_tables first.")
+ValueError: No NE tables registered. Call setup_ne_tables first.
+2026-06-15 14:57:31 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 14:57:31 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 14:57:32 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 14:57:34 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 14:57:34 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 14:57:34 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 14:58:19 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 14:58:19 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 14:58:44 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 14:59:52 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 14:59:52 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 15:00:03 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 15:00:09 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 15:00:09 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 15:00:20 [INFO] mcp-server: Tool finished: execute_read_query
