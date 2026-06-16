@@ -66,7 +66,7 @@ A table is treated as NE data if **any** of these match:
 
 1. It lives in the schema set by `NE_SCHEMA` (e.g. `ne`)
 2. Its name starts with `NE_TABLE_PREFIX` (default: `ne`)
-3. Its name contains patterns like `ne_`, `_ne`, `network_engineer`, `network_element`
+3. Its name contains patterns like `ne_`, `_ne`, `network_eng ineer`, `network_element`
 
 Configure in `.env`:
 
@@ -86,9 +86,6 @@ AUTO_SETUP_NE_TABLES=true
 - `get_table_schema`
 - `execute_read_query`
 
-### Requires table registration
-
-Generic read tools and NE tools need tables registered via `setup_all_tables`, `setup_table`, or `setup_ne_tables`.
 
 ### Scope limits
 
@@ -183,7 +180,7 @@ Add to `%APPDATA%\Claude\claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "postgres": {
+    "GIS MCP-Server": {
       "command": "python",
       "args": ["c:\\Vidushi\\mcp-server\\server.py"],
       "env": {

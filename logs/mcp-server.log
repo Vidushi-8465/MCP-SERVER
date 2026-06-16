@@ -537,3 +537,621 @@ asyncpg.exceptions.UndefinedColumnError: column "endpoint" does not exist
 2026-06-16 12:18:20 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
 2026-06-16 12:18:20 [INFO] mcp-server: Tool called: count_table_records
 2026-06-16 12:18:24 [INFO] mcp-server: Tool finished: count_table_records
+2026-06-16 12:34:04 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 12:34:04 [INFO] mcp-server: Tool called: list_registered_tables
+2026-06-16 12:34:04 [INFO] mcp-server: Tool finished: list_registered_tables
+2026-06-16 12:35:26 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 12:35:26 [INFO] mcp-server: Tool called: get_table_record
+2026-06-16 12:35:27 [INFO] mcp-server: Tool finished: get_table_record
+2026-06-16 12:35:38 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 12:35:38 [INFO] mcp-server: Tool called: search_table_records
+2026-06-16 12:36:38 [ERROR] mcp-server: Query failed: SELECT * FROM mcp_india_building_search($1, $2)
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\database.py", line 98, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2036, in _do_execute
+    result = await executor(stmt, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 205, in bind_execute
+TimeoutError
+2026-06-16 12:36:38 [ERROR] mcp-server: Tool failed: search_table_records
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\server.py", line 44, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\server.py", line 198, in search_table_records
+    return await tables.search_records(table_name, query, limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\table_service.py", line 97, in search_records
+    rows = await self.db.execute(
+           ^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "c:\Vidushi\mcp-server\database.py", line 185, in execute
+    return await self._run(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\database.py", line 98, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2036, in _do_execute
+    result = await executor(stmt, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 205, in bind_execute
+TimeoutError
+2026-06-16 12:53:57 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 12:53:57 [INFO] mcp-server: Tool called: search_table_records
+2026-06-16 12:54:58 [ERROR] mcp-server: Query failed: SELECT * FROM mcp_span_ne_search($1, $2)
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\database.py", line 98, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2036, in _do_execute
+    result = await executor(stmt, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 205, in bind_execute
+TimeoutError
+2026-06-16 12:54:58 [ERROR] mcp-server: Tool failed: search_table_records
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\server.py", line 44, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\server.py", line 198, in search_table_records
+    return await tables.search_records(table_name, query, limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\table_service.py", line 97, in search_records
+    rows = await self.db.execute(
+           ^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "c:\Vidushi\mcp-server\database.py", line 185, in execute
+    return await self._run(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\database.py", line 98, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2036, in _do_execute
+    result = await executor(stmt, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 205, in bind_execute
+TimeoutError
+2026-06-16 12:55:04 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 12:55:04 [INFO] mcp-server: Tool called: search_all_ne_data
+2026-06-16 12:56:06 [ERROR] mcp-server: Query failed: SELECT * FROM mcp_span_ne_search($1, $2)
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\database.py", line 98, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2036, in _do_execute
+    result = await executor(stmt, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 205, in bind_execute
+TimeoutError
+2026-06-16 12:57:06 [ERROR] mcp-server: Query failed: SELECT * FROM mcp_transmedia_search($1, $2)
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\database.py", line 98, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2036, in _do_execute
+    result = await executor(stmt, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 205, in bind_execute
+TimeoutError
+2026-06-16 12:57:06 [INFO] mcp-server: Tool finished: search_all_ne_data
+2026-06-16 12:57:08 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 12:57:08 [INFO] mcp-server: Tool called: search_table_records
+2026-06-16 12:57:09 [INFO] mcp-server: Tool finished: search_table_records
+2026-06-16 12:57:11 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 12:57:11 [INFO] mcp-server: Tool called: search_table_records
+2026-06-16 12:57:11 [INFO] mcp-server: Tool finished: search_table_records
+2026-06-16 12:57:14 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 12:57:14 [INFO] mcp-server: Tool called: search_table_records
+2026-06-16 12:57:15 [INFO] mcp-server: Tool finished: search_table_records
+2026-06-16 12:57:35 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 12:57:35 [INFO] mcp-server: Tool called: search_table_records
+2026-06-16 12:58:36 [ERROR] mcp-server: Query failed: SELECT * FROM mcp_bbsr_pt_search($1, $2)
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\database.py", line 98, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2036, in _do_execute
+    result = await executor(stmt, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 205, in bind_execute
+TimeoutError
+2026-06-16 12:58:36 [ERROR] mcp-server: Tool failed: search_table_records
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\server.py", line 44, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\server.py", line 198, in search_table_records
+    return await tables.search_records(table_name, query, limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\table_service.py", line 97, in search_records
+    rows = await self.db.execute(
+           ^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "c:\Vidushi\mcp-server\database.py", line 185, in execute
+    return await self._run(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\database.py", line 98, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2036, in _do_execute
+    result = await executor(stmt, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 205, in bind_execute
+TimeoutError
+2026-06-16 12:59:30 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 12:59:30 [INFO] mcp-server: Tool called: list_tables
+2026-06-16 12:59:30 [INFO] mcp-server: Tool finished: list_tables
+2026-06-16 12:59:35 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 12:59:35 [INFO] mcp-server: Tool called: count_table_records
+2026-06-16 12:59:36 [INFO] mcp-server: Tool finished: count_table_records
+2026-06-16 12:59:38 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 12:59:38 [INFO] mcp-server: Tool called: count_table_records
+2026-06-16 12:59:41 [INFO] mcp-server: Tool finished: count_table_records
+2026-06-16 13:02:57 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 13:02:57 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 13:03:58 [ERROR] mcp-server: Query failed: 
+SELECT 'span_ne' AS source_table, * FROM span_ne WHERE CAST(span_ne::text AS text) ILIKE '%NVMBBD0001234%' LIMIT 5;
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\database.py", line 98, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2036, in _do_execute
+    result = await executor(stmt, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 205, in bind_execute
+TimeoutError
+2026-06-16 13:03:58 [ERROR] mcp-server: Tool failed: execute_read_query
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\server.py", line 44, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\server.py", line 218, in execute_read_query
+    return await db.execute(sql)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\database.py", line 185, in execute
+    return await self._run(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\database.py", line 98, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2036, in _do_execute
+    result = await executor(stmt, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 205, in bind_execute
+TimeoutError
+2026-06-16 13:04:15 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 13:04:15 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 13:05:15 [ERROR] mcp-server: Query failed: 
+SELECT 'span_ne' as source_table, * FROM span_ne WHERE id::text ILIKE '%PUNEBD0133112%' OR CAST(span_ne::text AS text) ILIKE '%PUNEBD0133112%' LIMIT 5
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\database.py", line 98, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2036, in _do_execute
+    result = await executor(stmt, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 205, in bind_execute
+TimeoutError
+2026-06-16 13:05:15 [ERROR] mcp-server: Tool failed: execute_read_query
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\server.py", line 44, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\server.py", line 218, in execute_read_query
+    return await db.execute(sql)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\database.py", line 185, in execute
+    return await self._run(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\database.py", line 98, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2036, in _do_execute
+    result = await executor(stmt, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "asyncpg/protocol/protocol.pyx", line 205, in bind_execute
+TimeoutError
+2026-06-16 13:05:19 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 13:05:19 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 13:05:20 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 13:05:23 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 13:05:23 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 13:06:22 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 13:06:24 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 13:06:24 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 13:06:25 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 13:06:29 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 13:06:29 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 13:07:27 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 13:07:46 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 13:07:46 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 13:07:47 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 13:08:46 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 13:08:46 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 13:08:47 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 13:09:46 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 13:09:46 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 13:09:47 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 13:10:46 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 13:10:46 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 13:10:47 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 13:11:46 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 13:11:46 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 13:11:47 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 13:12:46 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 13:12:46 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 13:12:47 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 13:14:49 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 13:14:49 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 13:14:55 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 16:00:33 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 16:00:33 [INFO] mcp-server: Tool called: describe_database
+2026-06-16 16:00:33 [INFO] mcp-server: Tool finished: describe_database
+2026-06-16 16:07:28 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 16:07:28 [INFO] mcp-server: Tool called: get_table_schema
+2026-06-16 16:07:29 [INFO] mcp-server: Tool finished: get_table_schema
+2026-06-16 16:07:32 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 16:07:32 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 16:07:32 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 16:08:55 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 16:08:55 [INFO] mcp-server: Tool called: get_table_schema
+2026-06-16 16:08:55 [INFO] mcp-server: Tool finished: get_table_schema
+2026-06-16 16:08:59 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 16:08:59 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 16:09:00 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 16:23:16 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 16:23:16 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 16:23:17 [ERROR] mcp-server: Query failed: SELECT SUM(floors) as total_floors FROM usa_buildings WHERE floors IS NOT NULL
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\database.py", line 98, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2021, in _do_execute
+    stmt = await self._get_statement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 443, in _get_statement
+    statement = await self._protocol.prepare(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "asyncpg/protocol/protocol.pyx", line 165, in prepare
+asyncpg.exceptions.UndefinedColumnError: column "floors" does not exist
+2026-06-16 16:23:17 [ERROR] mcp-server: Tool failed: execute_read_query
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\server.py", line 44, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\server.py", line 218, in execute_read_query
+    return await db.execute(sql)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\database.py", line 185, in execute
+    return await self._run(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\database.py", line 98, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2021, in _do_execute
+    stmt = await self._get_statement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 443, in _get_statement
+    statement = await self._protocol.prepare(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "asyncpg/protocol/protocol.pyx", line 165, in prepare
+asyncpg.exceptions.UndefinedColumnError: column "floors" does not exist
+2026-06-16 16:23:19 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 16:23:19 [INFO] mcp-server: Tool called: get_table_schema
+2026-06-16 16:23:19 [INFO] mcp-server: Tool finished: get_table_schema
+2026-06-16 16:23:22 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 16:23:22 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 16:23:26 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 16:23:31 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 16:23:31 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 16:23:33 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 16:23:38 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 16:23:38 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 16:23:40 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 16:24:35 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 16:24:35 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 16:24:41 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 16:24:45 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 16:24:45 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 16:24:52 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 16:26:17 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 16:26:17 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 16:26:28 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 16:26:36 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 16:26:36 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 16:26:37 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 16:32:08 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 16:32:08 [INFO] mcp-server: Tool called: search_all_ne_data
+2026-06-16 16:32:11 [INFO] mcp-server: Tool finished: search_all_ne_data
+2026-06-16 16:34:53 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-06-16 16:34:53 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-06-16 16:34:53 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-06-16 16:34:53 [INFO] mcp-server: AUTO_SETUP_ALL_TABLES enabled — registering all tables
+2026-06-16 16:35:02 [INFO] mcp-server: Setup complete: 28 succeeded, 0 failed
+2026-06-16 16:35:02 [INFO] mcp-server: AUTO_SETUP_NE_TABLES enabled — registering NE tables
+2026-06-16 16:35:04 [INFO] mcp-server: NE setup: 7 succeeded, 0 failed
+2026-06-16 16:35:04 [INFO] mcp.server.lowlevel.server: Processing request of type ListToolsRequest
+2026-06-16 16:35:04 [INFO] mcp.server.lowlevel.server: Processing request of type ListPromptsRequest
+2026-06-16 16:35:04 [INFO] mcp.server.lowlevel.server: Processing request of type ListResourcesRequest
+2026-06-16 16:36:51 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-06-16 16:36:51 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-06-16 16:36:51 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-06-16 16:36:51 [INFO] mcp-server: AUTO_SETUP_ALL_TABLES enabled — registering all tables
+2026-06-16 16:37:03 [INFO] mcp-server: Setup complete: 28 succeeded, 0 failed
+2026-06-16 16:37:03 [INFO] mcp-server: AUTO_SETUP_NE_TABLES enabled — registering NE tables
+2026-06-16 16:37:06 [INFO] mcp-server: NE setup: 7 succeeded, 0 failed
+2026-06-16 16:37:06 [INFO] mcp.server.lowlevel.server: Processing request of type ListToolsRequest
+2026-06-16 16:37:06 [INFO] mcp.server.lowlevel.server: Processing request of type ListPromptsRequest
+2026-06-16 16:37:06 [INFO] mcp.server.lowlevel.server: Processing request of type ListResourcesRequest
