@@ -159,7 +159,7 @@ async def describe_database() -> str:
 
 
 # ---------------------------------------------------------------------------
-# Generic multi-table CRUD
+# Generic multi-table read access
 # ---------------------------------------------------------------------------
 
 
@@ -203,31 +203,6 @@ async def search_table_records(
 async def count_table_records(table_name: str) -> str:
     """Count total rows in any registered table."""
     return await tables.count_records(table_name)
-
-
-@mcp.tool()
-@log_tool
-async def create_table_record(table_name: str, data: dict[str, Any]) -> str:
-    """Insert a new row into any registered table."""
-    return await tables.create_record(table_name, data)
-
-
-@mcp.tool()
-@log_tool
-async def update_table_record(
-    table_name: str,
-    record_id: str,
-    data: dict[str, Any],
-) -> str:
-    """Update a row by primary key in any registered table."""
-    return await tables.update_record(table_name, record_id, data)
-
-
-@mcp.tool()
-@log_tool
-async def delete_table_record(table_name: str, record_id: str) -> str:
-    """Delete a row by primary key from any registered table."""
-    return await tables.delete_record(table_name, record_id)
 
 
 @mcp.tool()
@@ -322,31 +297,6 @@ async def search_all_ne_data(query: str, limit_per_table: int = 10) -> str:
 async def count_ne_records(table_name: str) -> str:
     """Count rows in a specific NE table."""
     return await ne.count_ne_records(table_name)
-
-
-@mcp.tool()
-@log_tool
-async def create_ne_record(table_name: str, data: dict[str, Any]) -> str:
-    """Insert a new row into an NE table."""
-    return await ne.create_ne_record(table_name, data)
-
-
-@mcp.tool()
-@log_tool
-async def update_ne_record(
-    table_name: str,
-    record_id: str,
-    data: dict[str, Any],
-) -> str:
-    """Update a row in an NE table by primary key."""
-    return await ne.update_ne_record(table_name, record_id, data)
-
-
-@mcp.tool()
-@log_tool
-async def delete_ne_record(table_name: str, record_id: str) -> str:
-    """Delete a row from an NE table by primary key."""
-    return await ne.delete_ne_record(table_name, record_id)
 
 
 if __name__ == "__main__":

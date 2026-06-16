@@ -12,39 +12,6 @@ def _proc_prefix(table_name: str) -> str:
     return f"mcp_{sanitize_name(table_name)}"
 
 
-def _pg_type(column) -> str:
-    return column.data_type
-
-
-def _build_insert_columns(schema: TableSchema) -> tuple[str, str, str]:
-    insertable = [column for column in schema.columns if not column.is_auto_generated]
-
-    column_names = ", ".join(_quote_ident(column.name) for column in insertable)
-    value_names = ", ".join(f"p_{column.name}" for column in insertable)
-    param_types = ", ".join(
-        f"p_{column.name} {_pg_type(column)}"
-        + (" DEFAULT NULL" if column.is_nullable else "")
-        for column in insertable
-    )
-    return column_names, value_names, param_types
-
-
-def _build_update_assignments(schema: TableSchema) -> tuple[str, str]:
-    updatable = [
-        column for column in schema.columns if column.name != schema.primary_key
-    ]
-    assignments = ", ".join(
-        f"{_quote_ident(column.name)} = COALESCE("
-        f"p_{column.name}::{_pg_type(column)}, "
-        f"{_quote_ident(column.name)})"
-        for column in updatable
-    )
-    param_types = ", ".join(
-        f"p_{column.name} {_pg_type(column)} DEFAULT NULL" for column in updatable
-    )
-    return assignments, param_types
-
-
 def generate_list_procedure(schema: TableSchema) -> str:
     prefix = _proc_prefix(schema.table_name)
     qualified = schema.qualified_name
@@ -134,97 +101,14 @@ $$;
 """.strip()
 
 
-def generate_insert_procedure(schema: TableSchema) -> str:
-    prefix = _proc_prefix(schema.table_name)
-    qualified = schema.qualified_name
-    column_names, value_names, param_types = _build_insert_columns(schema)
-    if not column_names:
-        raise ValueError(f"Table '{schema.table_name}' has no insertable columns.")
-
-    return f"""
-CREATE OR REPLACE FUNCTION {prefix}_insert({param_types})
-RETURNS {schema.row_type}
-LANGUAGE sql
-AS $$
-    INSERT INTO {qualified} ({column_names})
-    VALUES ({value_names})
-    RETURNING *;
-$$;
-""".strip()
-
-
-def generate_update_procedure(schema: TableSchema) -> str:
-    if not schema.primary_key:
-        raise ValueError(
-            f"Table '{schema.table_name}' has no primary key for update."
-        )
-
-    prefix = _proc_prefix(schema.table_name)
-    qualified = schema.qualified_name
-    pk = _quote_ident(schema.primary_key)
-    pk_type = next(
-        column.data_type
-        for column in schema.columns
-        if column.name == schema.primary_key
-    )
-    assignments, param_types = _build_update_assignments(schema)
-    if not assignments:
-        raise ValueError(f"Table '{schema.table_name}' has no updatable columns.")
-
-    return f"""
-CREATE OR REPLACE FUNCTION {prefix}_update(
-    p_id {pk_type},
-    {param_types}
-)
-RETURNS {schema.row_type}
-LANGUAGE sql
-AS $$
-    UPDATE {qualified}
-    SET {assignments}
-    WHERE {pk} = p_id
-    RETURNING *;
-$$;
-""".strip()
-
-
-def generate_delete_procedure(schema: TableSchema) -> str:
-    if not schema.primary_key:
-        raise ValueError(
-            f"Table '{schema.table_name}' has no primary key for delete."
-        )
-
-    prefix = _proc_prefix(schema.table_name)
-    qualified = schema.qualified_name
-    pk = _quote_ident(schema.primary_key)
-    pk_type = next(
-        column.data_type
-        for column in schema.columns
-        if column.name == schema.primary_key
-    )
-    return f"""
-CREATE OR REPLACE FUNCTION {prefix}_delete(p_id {pk_type})
-RETURNS BOOLEAN
-LANGUAGE sql
-AS $$
-    WITH deleted AS (
-        DELETE FROM {qualified} WHERE {pk} = p_id RETURNING 1
-    )
-    SELECT EXISTS (SELECT 1 FROM deleted);
-$$;
-""".strip()
-
-
 def _build_procedure_set(schema: TableSchema) -> dict[str, str]:
     statements: dict[str, str] = {
         "list": generate_list_procedure(schema),
         "count": generate_count_procedure(schema),
         "search": generate_search_procedure(schema),
-        "insert": generate_insert_procedure(schema),
     }
     if schema.primary_key:
         statements["get_by_id"] = generate_get_by_id_procedure(schema)
-        statements["update"] = generate_update_procedure(schema)
-        statements["delete"] = generate_delete_procedure(schema)
     return statements
 
 

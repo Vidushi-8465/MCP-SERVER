@@ -33,6 +33,9 @@ class NEService:
         return schemas
 
     def is_ne_table(self, schema_name: str, table_name: str) -> bool:
+        configured = self.db.config.ne_tables
+        if configured:
+            return table_name.lower() in {name.lower() for name in configured}
         if self.db.config.ne_schema and schema_name.lower() == self.db.config.ne_schema.lower():
             return True
         lower = table_name.lower()
@@ -235,17 +238,3 @@ class NEService:
             default=str,
             indent=2,
         )
-
-    async def create_ne_record(self, table_name: str, data: dict[str, Any]) -> str:
-        table_ref = self._require_ne_table(table_name)
-        return await self.tables.create_record(table_ref, data)
-
-    async def update_ne_record(
-        self, table_name: str, record_id: str, data: dict[str, Any]
-    ) -> str:
-        table_ref = self._require_ne_table(table_name)
-        return await self.tables.update_record(table_ref, record_id, data)
-
-    async def delete_ne_record(self, table_name: str, record_id: str) -> str:
-        table_ref = self._require_ne_table(table_name)
-        return await self.tables.delete_record(table_ref, record_id)

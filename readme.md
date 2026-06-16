@@ -1,6 +1,6 @@
 # PostgreSQL MCP Server
 
-Multi-table MCP server for Claude Desktop that connects to PostgreSQL and exposes database tools for discovery, CRUD, search, custom read queries, and **NE (Network Engineer) region data**.
+Multi-table MCP server for Claude Desktop that connects to PostgreSQL and exposes **read-only** database tools for discovery, search, custom SELECT queries, and **NE (Network Engineer) region data**.
 
 ## Quick start
 
@@ -12,7 +12,7 @@ Multi-table MCP server for Claude Desktop that connects to PostgreSQL and expose
 
 ---
 
-## All 26 tools
+## All 20 tools
 
 ### Discovery & setup — general (6 tools)
 
@@ -25,7 +25,7 @@ Multi-table MCP server for Claude Desktop that connects to PostgreSQL and expose
 | `list_registered_tables` | Shows which tables are ready to use |
 | `describe_database` | Overview of registered tables and procedures |
 
-### Data access — any registered table (7 tools)
+### Data access — any registered table (4 tools)
 
 Pass `table_name` (use `schema.table` format when needed, e.g. `public.ne_buildings`):
 
@@ -35,9 +35,6 @@ Pass `table_name` (use `schema.table` format when needed, e.g. `public.ne_buildi
 | `get_table_record` | One row by primary key |
 | `search_table_records` | Text search across string columns |
 | `count_table_records` | Total row count |
-| `create_table_record` | Insert a row |
-| `update_table_record` | Update by primary key |
-| `delete_table_record` | Delete by primary key |
 
 ### Custom SQL (1 tool)
 
@@ -45,7 +42,7 @@ Pass `table_name` (use `schema.table` format when needed, e.g. `public.ne_buildi
 |------|----------------|
 | `execute_read_query` | Run any `SELECT` query (joins, reports, analytics) |
 
-### NE (Netwrok Engineer) data tools (12 tools)
+### NE (Netwrok Engineer) data tools (9 tools)
 
 For tables in the NE schema or whose names match the NE prefix (e.g. `ne_buildings`, `ne_sites`):
 
@@ -60,9 +57,6 @@ For tables in the NE schema or whose names match the NE prefix (e.g. `ne_buildin
 | `search_ne_records` | Search one NE table by text |
 | `search_all_ne_data` | Search across **all** NE tables at once |
 | `count_ne_records` | Count rows in one NE table |
-| `create_ne_record` | Insert into an NE table |
-| `update_ne_record` | Update an NE record |
-| `delete_ne_record` | Delete an NE record |
 
 ---
 
@@ -94,7 +88,7 @@ AUTO_SETUP_NE_TABLES=true
 
 ### Requires table registration
 
-Generic CRUD tools and NE tools need tables registered via `setup_all_tables`, `setup_table`, or `setup_ne_tables`.
+Generic read tools and NE tools need tables registered via `setup_all_tables`, `setup_table`, or `setup_ne_tables`.
 
 ### Scope limits
 
@@ -103,14 +97,14 @@ Generic CRUD tools and NE tools need tables registered via `setup_all_tables`, `
 | Default schema | `DB_SCHEMA` (default: `public`) |
 | NE schema | Optional separate schema via `NE_SCHEMA` |
 | Registration | Some tables may fail setup (missing PK, type errors) |
-| Procedures | `list`, `count`, `search`, `insert` on all registered tables |
-| Primary key | `get`, `update`, `delete` require a primary key |
+| Procedures | `list`, `count`, `search` on all registered tables |
+| Primary key | `get_by_id` requires a primary key |
 
 ### Summary
 
 | Question | Answer |
 |----------|--------|
-| How many tools? | **26** (14 general + 12 NE) |
+| How many tools? | **20** (11 general + 9 NE) |
 | NE data supported? | **Yes** — dedicated NE tools + auto-discovery |
 | Same tools for every table? | Yes — pass `table_name` or use NE tools |
 | Works without setup? | Only discovery + `execute_read_query` |
@@ -230,7 +224,7 @@ mcp-server/
 ├── logger.py           # File-based logging
 ├── procedures.py       # Stored procedure generation
 ├── table_registry.py   # Tracks registered tables
-├── table_service.py    # Multi-table CRUD logic
+├── table_service.py    # Multi-table read logic
 ├── table_refs.py       # schema.table reference helpers
 ├── ne_service.py       # NE data discovery and operations
 ├── requirements.txt

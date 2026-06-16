@@ -1,3 +1,4 @@
+#It stores all the tables in the database and their procedures 
 from __future__ import annotations
 
 from database import TableSchema

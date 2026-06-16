@@ -194,3 +194,346 @@ ValueError: No NE tables registered. Call setup_ne_tables first.
 2026-06-15 15:00:09 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
 2026-06-15 15:00:09 [INFO] mcp-server: Tool called: execute_read_query
 2026-06-15 15:00:20 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 17:57:59 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 17:57:59 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 17:58:00 [ERROR] mcp-server: Query failed: SELECT DISTINCT rj_fiber_owner, COUNT(*) as span_count FROM span_ne WHERE rj_fiber_owner IS NOT NULL GROUP BY rj_fiber_owner ORDER BY span_count DESC;
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\database.py", line 103, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2021, in _do_execute
+    stmt = await self._get_statement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 443, in _get_statement
+    statement = await self._protocol.prepare(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "asyncpg/protocol/protocol.pyx", line 165, in prepare
+asyncpg.exceptions.UndefinedColumnError: column "rj_fiber_owner" does not exist
+2026-06-15 17:58:00 [ERROR] mcp-server: Tool failed: execute_read_query
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\server.py", line 44, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\server.py", line 243, in execute_read_query
+    return await db.execute(sql)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\database.py", line 190, in execute
+    return await self._run(query, *args, write=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\database.py", line 103, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2021, in _do_execute
+    stmt = await self._get_statement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 443, in _get_statement
+    statement = await self._protocol.prepare(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "asyncpg/protocol/protocol.pyx", line 165, in prepare
+asyncpg.exceptions.UndefinedColumnError: column "rj_fiber_owner" does not exist
+2026-06-15 17:58:02 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 17:58:02 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 17:58:02 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 17:58:04 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 17:58:04 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 17:58:05 [ERROR] mcp-server: Query failed: SELECT DISTINCT "FiberOwner", COUNT(*) as span_count FROM span_ne WHERE "FiberOwner" IS NOT NULL GROUP BY "FiberOwner" ORDER BY span_count DESC;
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\database.py", line 103, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2021, in _do_execute
+    stmt = await self._get_statement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 443, in _get_statement
+    statement = await self._protocol.prepare(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "asyncpg/protocol/protocol.pyx", line 165, in prepare
+asyncpg.exceptions.UndefinedColumnError: column "FiberOwner" does not exist
+2026-06-15 17:58:05 [ERROR] mcp-server: Tool failed: execute_read_query
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\server.py", line 44, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\server.py", line 243, in execute_read_query
+    return await db.execute(sql)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\database.py", line 190, in execute
+    return await self._run(query, *args, write=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\database.py", line 103, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2021, in _do_execute
+    stmt = await self._get_statement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 443, in _get_statement
+    statement = await self._protocol.prepare(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "asyncpg/protocol/protocol.pyx", line 165, in prepare
+asyncpg.exceptions.UndefinedColumnError: column "FiberOwner" does not exist
+2026-06-15 17:58:09 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 17:58:09 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 17:58:09 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 17:58:11 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 17:58:11 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 17:58:11 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 17:58:13 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-15 17:58:13 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-15 17:58:13 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-15 17:59:58 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-06-15 17:59:58 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-06-15 17:59:58 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-06-15 17:59:58 [INFO] mcp-server: AUTO_SETUP_ALL_TABLES enabled — registering all tables
+2026-06-15 18:00:08 [INFO] mcp-server: Setup complete: 8 succeeded, 20 failed
+2026-06-15 18:00:08 [INFO] mcp-server: AUTO_SETUP_NE_TABLES enabled — registering NE tables
+2026-06-15 18:00:09 [INFO] mcp-server: NE setup: 0 succeeded, 1 failed
+2026-06-16 10:44:10 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-06-16 10:44:10 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-06-16 10:44:10 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-06-16 10:44:10 [INFO] mcp-server: AUTO_SETUP_ALL_TABLES enabled — registering all tables
+2026-06-16 10:44:21 [INFO] mcp-server: Setup complete: 8 succeeded, 20 failed
+2026-06-16 10:44:21 [INFO] mcp-server: AUTO_SETUP_NE_TABLES enabled — registering NE tables
+2026-06-16 10:44:23 [INFO] mcp-server: NE setup: 2 succeeded, 5 failed
+2026-06-16 10:44:51 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-06-16 10:44:51 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-06-16 10:44:51 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-06-16 10:44:51 [INFO] mcp-server: AUTO_SETUP_ALL_TABLES enabled — registering all tables
+2026-06-16 10:45:01 [INFO] mcp-server: Setup complete: 8 succeeded, 20 failed
+2026-06-16 10:45:01 [INFO] mcp-server: AUTO_SETUP_NE_TABLES enabled — registering NE tables
+2026-06-16 10:45:04 [INFO] mcp-server: NE setup: 2 succeeded, 5 failed
+2026-06-16 10:45:04 [INFO] mcp.server.lowlevel.server: Processing request of type ListToolsRequest
+2026-06-16 10:45:04 [INFO] mcp.server.lowlevel.server: Processing request of type ListPromptsRequest
+2026-06-16 10:45:04 [INFO] mcp.server.lowlevel.server: Processing request of type ListResourcesRequest
+2026-06-16 10:45:47 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 10:45:47 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 10:45:47 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 11:00:41 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 11:00:41 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 11:00:41 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 11:00:44 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 11:00:44 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 11:01:02 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 11:02:49 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 11:02:49 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 11:02:49 [ERROR] mcp-server: Query failed: SELECT * FROM services WHERE name ILIKE '%state%' OR name ILIKE '%structure%' OR endpoint ILIKE '%state%' OR endpoint ILIKE '%structure%' LIMIT 10;
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\database.py", line 103, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2021, in _do_execute
+    stmt = await self._get_statement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 443, in _get_statement
+    statement = await self._protocol.prepare(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "asyncpg/protocol/protocol.pyx", line 165, in prepare
+asyncpg.exceptions.UndefinedColumnError: column "endpoint" does not exist
+2026-06-16 11:02:49 [ERROR] mcp-server: Tool failed: execute_read_query
+Traceback (most recent call last):
+  File "c:\Vidushi\mcp-server\server.py", line 44, in wrapper
+    result = await func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\server.py", line 243, in execute_read_query
+    return await db.execute(sql)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\database.py", line 190, in execute
+    return await self._run(query, *args, write=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Vidushi\mcp-server\database.py", line 103, in _run
+    rows = await conn.fetch(query, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 694, in fetch
+    return await self._execute(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1873, in _execute
+    result, _ = await self.__execute(
+                ^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 1970, in __execute
+    result, stmt = await self._do_execute(
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 2021, in _do_execute
+    stmt = await self._get_statement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\vidushi.bhardwaj\AppData\Local\Programs\Python\Python314\Lib\site-packages\asyncpg\connection.py", line 443, in _get_statement
+    statement = await self._protocol.prepare(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "asyncpg/protocol/protocol.pyx", line 165, in prepare
+asyncpg.exceptions.UndefinedColumnError: column "endpoint" does not exist
+2026-06-16 11:02:51 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 11:02:51 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 11:02:51 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 11:02:55 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 11:02:55 [INFO] mcp-server: Tool called: execute_read_query
+2026-06-16 11:02:55 [INFO] mcp-server: Tool finished: execute_read_query
+2026-06-16 12:13:06 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-06-16 12:13:06 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-06-16 12:13:07 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-06-16 12:13:07 [INFO] mcp-server: AUTO_SETUP_ALL_TABLES enabled — registering all tables
+2026-06-16 12:13:19 [INFO] mcp-server: Setup complete: 28 succeeded, 0 failed
+2026-06-16 12:13:19 [INFO] mcp-server: AUTO_SETUP_NE_TABLES enabled — registering NE tables
+2026-06-16 12:13:22 [INFO] mcp-server: NE setup: 7 succeeded, 0 failed
+2026-06-16 12:13:22 [INFO] mcp.server.lowlevel.server: Processing request of type ListToolsRequest
+2026-06-16 12:13:22 [INFO] mcp.server.lowlevel.server: Processing request of type ListPromptsRequest
+2026-06-16 12:13:22 [INFO] mcp.server.lowlevel.server: Processing request of type ListResourcesRequest
+2026-06-16 12:14:18 [INFO] mcp-server: MCP server stopped
+2026-06-16 12:14:25 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-06-16 12:14:25 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-06-16 12:14:26 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-06-16 12:14:26 [INFO] mcp-server: AUTO_SETUP_ALL_TABLES enabled — registering all tables
+2026-06-16 12:14:37 [INFO] mcp-server: Setup complete: 28 succeeded, 0 failed
+2026-06-16 12:14:37 [INFO] mcp-server: AUTO_SETUP_NE_TABLES enabled — registering NE tables
+2026-06-16 12:14:40 [INFO] mcp-server: NE setup: 7 succeeded, 0 failed
+2026-06-16 12:15:11 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-06-16 12:15:11 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-06-16 12:15:12 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-06-16 12:15:12 [INFO] mcp-server: AUTO_SETUP_ALL_TABLES enabled — registering all tables
+2026-06-16 12:15:22 [INFO] mcp-server: Setup complete: 28 succeeded, 0 failed
+2026-06-16 12:15:22 [INFO] mcp-server: AUTO_SETUP_NE_TABLES enabled — registering NE tables
+2026-06-16 12:15:24 [INFO] mcp-server: NE setup: 7 succeeded, 0 failed
+2026-06-16 12:15:24 [INFO] mcp.server.lowlevel.server: Processing request of type ListToolsRequest
+2026-06-16 12:15:24 [INFO] mcp.server.lowlevel.server: Processing request of type ListPromptsRequest
+2026-06-16 12:15:24 [INFO] mcp.server.lowlevel.server: Processing request of type ListResourcesRequest
+2026-06-16 12:16:52 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 12:16:52 [INFO] mcp-server: Tool called: list_tables
+2026-06-16 12:16:52 [INFO] mcp-server: Tool finished: list_tables
+2026-06-16 12:18:14 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 12:18:14 [INFO] mcp-server: Tool called: count_table_records
+2026-06-16 12:18:18 [INFO] mcp-server: Tool finished: count_table_records
+2026-06-16 12:18:20 [INFO] mcp.server.lowlevel.server: Processing request of type CallToolRequest
+2026-06-16 12:18:20 [INFO] mcp-server: Tool called: count_table_records
+2026-06-16 12:18:24 [INFO] mcp-server: Tool finished: count_table_records

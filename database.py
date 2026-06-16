@@ -90,16 +90,11 @@ class Database:
         assert self._pool is not None
         return self._pool
 
-    async def _run(self, query: str, *args: Any, write: bool = False) -> str:
+    async def _run(self, query: str, *args: Any) -> str:
         await self.ensure_connected()
         pool = await self._get_pool()
         try:
             async with pool.acquire() as conn:
-                if write:
-                    result = await conn.fetchrow(query, *args)
-                    if result is None:
-                        return json.dumps({"success": True})
-                    return json.dumps(dict(result), default=str)
                 rows = await conn.fetch(query, *args)
                 return json.dumps([dict(row) for row in rows], default=str)
         except Exception:
@@ -187,7 +182,4 @@ class Database:
         )
 
     async def execute(self, query: str, *args: Any) -> str:
-        return await self._run(query, *args, write=False)
-
-    async def execute_write(self, query: str, *args: Any) -> str:
-        return await self._run(query, *args, write=True)
+        return await self._run(query, *args)
