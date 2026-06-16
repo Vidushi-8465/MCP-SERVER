@@ -4,7 +4,7 @@ import json
 from dataclasses import dataclass
 from typing import Any
 
-import asyncpg
+import asyncpg #asynchronous PostgreSQL driver
 
 from config import DatabaseConfig, load_config
 from logger import setup_logging

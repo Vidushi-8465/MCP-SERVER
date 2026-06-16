@@ -18,6 +18,7 @@ class DatabaseConfig:
     schema: str
     ne_schema: str | None = None
     ne_table_prefix: str = "ne"
+    ne_tables: list[str] 
     auto_setup_all_tables: bool = False
     auto_setup_ne_tables: bool = False
 

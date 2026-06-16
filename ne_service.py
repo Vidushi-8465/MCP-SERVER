@@ -11,7 +11,7 @@ from table_service import TableService
 
 logger = setup_logging()
 
-NE_TABLE_HINTS = ("ne_", "_ne", "ne_data", "northeast", "network_element")
+NE_TABLE_HINTS = ("ne_", "_ne", "ne_data", "Network Engineer", "network_element")
 
 
 class NEService:

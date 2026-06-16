@@ -1,6 +1,6 @@
 # PostgreSQL MCP Server
 
-Multi-table MCP server for Claude Desktop that connects to PostgreSQL and exposes database tools for discovery, CRUD, search, custom read queries, and **NE (Northeast) region data**.
+Multi-table MCP server for Claude Desktop that connects to PostgreSQL and exposes database tools for discovery, CRUD, search, custom read queries, and **NE (Network Engineer) region data**.
 
 ## Quick start
 
