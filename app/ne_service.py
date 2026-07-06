@@ -3,11 +3,11 @@ from __future__ import annotations
 import json
 from typing import Any
 
-from database import Database
-from logger import setup_logging
-from table_refs import make_table_ref
-from table_registry import TableRegistry
-from table_service import TableService
+from app.database import Database
+from app.logger import setup_logging
+from app.table_refs import make_table_ref
+from app.table_registry import TableRegistry
+from app.table_service import TableService
 
 logger = setup_logging()
 

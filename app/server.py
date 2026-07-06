@@ -14,11 +14,11 @@ from typing import Any, Callable
 
 from mcp.server.fastmcp import FastMCP
 
-from database import Database
-from logger import LOG_FILE, setup_logging
-from ne_service import NEService
-from table_registry import TableRegistry
-from table_service import TableService
+from app.database import Database
+from app.logger import LOG_FILE, setup_logging
+from app.ne_service import NEService
+from app.table_registry import TableRegistry
+from app.table_service import TableService
 
 logger = setup_logging()
 db = Database()

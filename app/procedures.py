@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from database import Database, TableSchema
-from table_registry import TableRegistry, sanitize_name
+from app.database import Database, TableSchema
+from app.table_registry import TableRegistry, sanitize_name
 
 
 def _quote_ident(name: str) -> str:

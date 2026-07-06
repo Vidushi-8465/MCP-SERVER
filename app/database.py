@@ -6,8 +6,8 @@ from typing import Any
 
 import asyncpg #asynchronous PostgreSQL driver
 
-from config import DatabaseConfig, load_config
-from logger import setup_logging
+from app.config import DatabaseConfig, load_config
+from app.logger import setup_logging
 
 logger = setup_logging()
 

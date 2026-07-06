@@ -1155,3 +1155,13 @@ asyncpg.exceptions.UndefinedColumnError: column "floors" does not exist
 2026-06-16 16:37:06 [INFO] mcp.server.lowlevel.server: Processing request of type ListToolsRequest
 2026-06-16 16:37:06 [INFO] mcp.server.lowlevel.server: Processing request of type ListPromptsRequest
 2026-06-16 16:37:06 [INFO] mcp.server.lowlevel.server: Processing request of type ListResourcesRequest
+2026-06-21 17:11:43 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-06-21 17:11:43 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-06-21 17:11:58 [ERROR] mcp-server: Startup failed: 
+2026-06-21 17:11:58 [INFO] mcp.server.lowlevel.server: Processing request of type ListToolsRequest
+2026-06-21 17:11:58 [INFO] mcp.server.lowlevel.server: Processing request of type ListPromptsRequest
+2026-06-21 17:11:58 [INFO] mcp.server.lowlevel.server: Processing request of type ListResourcesRequest
+2026-07-01 15:50:42 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\logs\mcp-server.log)
+2026-07-01 15:50:42 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-07-01 15:50:42 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-07-01 15:50:42 [INFO] mcp-server: AUTO_SETUP_ALL_TABLES enabled — registering all tables

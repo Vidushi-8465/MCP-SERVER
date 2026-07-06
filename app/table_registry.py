@@ -1,8 +1,8 @@
 #It stores all the tables in the database and their procedures 
 from __future__ import annotations
 
-from database import TableSchema
-from table_refs import make_table_ref
+from app.database import TableSchema
+from app.table_refs import make_table_ref
 
 
 def sanitize_name(name: str) -> str:
