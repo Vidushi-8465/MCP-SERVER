@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <system.webServer>
+    <handlers>
+      <add name="httpPlatformHandler" path="*" verb="*"
+           modules="httpPlatformHandler" resourceType="Unspecified" />
+    </handlers>
+    <httpPlatform stdoutLogEnabled="true"
+                  stdoutLogFile=".\app\logs\httpplatform.log"
+                  startupTimeLimit="60"
+                  processPath="C:\apps\mcp-server\.venv\Scripts\python.exe"
+                  arguments="run_http.py">
+      <environmentVariables>
+        <environmentVariable name="MCP_HOST" value="127.0.0.1" />
+        <environmentVariable name="MCP_PORT" value="%HTTP_PLATFORM_PORT%" />
+        <environmentVariable name="MCP_PATH" value="/mcp" />
+      </environmentVariables>
+    </httpPlatform>
+  </system.webServer>
+</configuration>
