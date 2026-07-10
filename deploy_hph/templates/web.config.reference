@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  REFERENCE ONLY. The deploy generates the real web.config at deploy time via
+  New-HphWebConfig (lib\DeployHph.psm1), substituting the venv python path and
+  your settings. This file shows the shape of the result.
+
+  Placeholders (filled by the deploy):
+    __PYTHON_EXE__   -> <InstallPath>\.venv\Scripts\python.exe
+    __STDOUT_LOG__   -> .\app\logs\httpplatform.log
+    __STARTUP__      -> StartupTimeLimit (seconds)
+    __MCP_HOST__     -> 127.0.0.1
+    __MCP_PATH__     -> /mcp
+-->
+<configuration>
+  <system.webServer>
+    <handlers>
+      <add name="httpPlatformHandler" path="*" verb="*"
+           modules="httpPlatformHandler" resourceType="Unspecified" />
+    </handlers>
+    <httpPlatform stdoutLogEnabled="true"
+                  stdoutLogFile="__STDOUT_LOG__"
+                  startupTimeLimit="__STARTUP__"
+                  processPath="__PYTHON_EXE__"
+                  arguments="run_http.py">
+      <environmentVariables>
+        <environmentVariable name="MCP_HOST" value="__MCP_HOST__" />
+        <!-- IIS assigns the private port; run_http.py reads it from MCP_PORT -->
+        <environmentVariable name="MCP_PORT" value="%HTTP_PLATFORM_PORT%" />
+        <environmentVariable name="MCP_PATH" value="__MCP_PATH__" />
+      </environmentVariables>
+    </httpPlatform>
+  </system.webServer>
+</configuration>

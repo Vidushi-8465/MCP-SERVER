@@ -1,0 +1,7 @@
+2026-07-10 15:24:37 [INFO] mcp-server: MCP server starting (logs: C:\Vidushi\mcp-server\app\logs\mcp-server.log)
+2026-07-10 15:24:37 [INFO] mcp-server: Connecting to PostgreSQL at 10.144.90.128:5432/postgres
+2026-07-10 15:24:37 [INFO] mcp-server: PostgreSQL connection pool ready
+2026-07-10 15:24:37 [INFO] mcp-server: AUTO_SETUP_ALL_TABLES enabled — registering all tables
+2026-07-10 15:24:49 [INFO] mcp-server: Setup complete: 30 succeeded, 0 failed
+2026-07-10 15:24:49 [INFO] mcp-server: AUTO_SETUP_NE_TABLES enabled — registering NE tables
+2026-07-10 15:24:52 [INFO] mcp-server: NE setup: 7 succeeded, 0 failed
