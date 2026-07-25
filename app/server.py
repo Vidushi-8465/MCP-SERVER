@@ -9,8 +9,15 @@ from __future__ import annotations
 
 import functools
 import json
+import os
+import sys
 from contextlib import asynccontextmanager
+from pathlib import Path
 from typing import Any, Callable
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
 
 from mcp.server.fastmcp import FastMCP
 
@@ -299,5 +306,25 @@ async def count_ne_records(table_name: str) -> str:
     return await ne.count_ne_records(table_name)
 
 
+def main() -> None:
+    transport = os.getenv("MCP_TRANSPORT", "stdio").strip().lower()
+    host = os.getenv("MCP_HOST", "127.0.0.1")
+    port = int(os.getenv("MCP_PORT", "8000"))
+    path = (os.getenv("MCP_PATH", "/mcp") or "/mcp").strip()
+    if not path.startswith("/"):
+        path = f"/{path}"
+
+    if transport == "streamable-http":
+        try:
+            mcp.run(transport=transport, host=host, port=port, path=path)
+        except TypeError:
+            mcp.settings.host = host
+            mcp.settings.port = port
+            mcp.settings.streamable_http_path = path
+            mcp.run(transport=transport)
+    else:
+        mcp.run(transport=transport)
+
+
 if __name__ == "__main__":
-    mcp.run(transport="stdio")
+    main()
